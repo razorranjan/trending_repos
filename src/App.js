@@ -8,38 +8,34 @@ import ForkIcon from './components/ForkIcon';
 
 function App() {
   const [repos, setRepos] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
   const url = 'https://gh-trending-api.herokuapp.com/repositories';
   useEffect(() => {
     axios.get(url)
     .then(res => {
       // console.log(res.data);
       setRepos(res.data);
-      setIsLoaded(true);
     }).catch(error =>{
       console.log('unable to fetch!')
-      setIsLoaded(true);
     });
   },[]);
   const repoList = repos.map((repo,index) => {
     const contributers = repo.builtBy.map((dev,index) => {
       return (
-        <li key={index}><a href={dev.url} title={dev.username}><img src={dev.avatar} alt={dev.username}/></a></li>
+        <li key={index}><a href={dev.url} title={dev.username} rel='noreferrer'><img src={dev.avatar} alt={dev.username}/></a></li>
       );
     });
     return (
       <div key={index} className='repolist'>
         <div className='tile'>
-          {/* { repo.rank } */}
           <RepoIcon/>
-          <a href={ repo.url } target="_blank"><span>{ repo.username } / { repo.repositoryName }</span></a>
+          <a href={ repo.url } target="_blank" rel='noreferrer'><span>{ repo.username } / { repo.repositoryName }</span></a>
           <p className='description'>{repo.description}</p>
-          <p>
+          <div className='bottomline'>
             <span className='brick'>{repo.language}</span>
-            <span className='brick'><StarIcon/> {repo.totalStars}</span>
-            <span className='brick'><ForkIcon/> {repo.forks}</span>
+            <a href={ repo.url + "/stargazers"} target="_blank" rel='noreferrer'><span className='brick'><StarIcon/> {repo.totalStars}</span></a>
+            <a href={ repo.url + "/network/members." + repo.repositoryName } target="_blank" rel='noreferrer'><span className='brick'><ForkIcon/> {repo.forks}</span></a>
             <ul>Built by &nbsp;&nbsp;{contributers}</ul>
-          </p>
+          </div>
           <p className='stars-today'><StarIcon/> <span>{repo.starsSince} stars today</span></p>
         </div>
       </div>
@@ -52,14 +48,14 @@ function App() {
         {/* {
           <img src={logo} className="App-logo" alt="logo" />
         } */}
-        <div class="text-center">
-          <h1 class="h1">Trending</h1>
+        <div className="text-center">
+          
+          <h1> <img src={logo} className="App-logo" alt="logo" />Trending</h1>
           <p>See what the GitHub community is most excited about today.</p>
         </div>
       </header>
       <div className='repository-container'>
         <p className='title'>Repositories</p>
-        {/* <img src={logo} className="App-logo" isLoaded={isLoaded} alt="logo" /> */}
         {repoList}
       </div>
     </div>

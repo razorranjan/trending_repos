@@ -5,6 +5,7 @@
   /* max-width: 960px; */
   margin: auto;
   color: #8b949e;
+  padding-bottom: 40px;
 }
 svg{
   fill: #8b949e;
@@ -12,8 +13,9 @@ svg{
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
+  vertical-align: top;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -29,7 +31,14 @@ svg{
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 25px 15px;
+}
+.App-header h1{
+  font-size: 32px;
+  margin: 0;
+}
+.App-header p {
+  font-size: 16px;
 }
 
 .App-link {
@@ -40,7 +49,7 @@ svg{
   border: 1px solid #30363d;
   border-radius: 5px;
   max-width: 960px;
-  margin: 40px auto;
+  margin: 40px auto 0;
 }
 .repository-container .title {
   background-color: #161b22;
@@ -53,8 +62,8 @@ svg{
 	text-align: left;
 	border: 1px solid #191e24;
 	padding: 20px;
-	margin-bottom: 10px;
   position: relative;
+  transition: all .3s ease-out
 }
 .App li a{
   color: #58a6ff;
@@ -72,13 +81,14 @@ svg{
 .brick {
   padding-right: 10px;
 }
-.tile {
-  /* width: 50%; */
-}
 .tile a {
   color: #58a6ff;
   font-size: 20px;
   padding-left: 10px;
+  text-decoration: none;
+}
+.tile a:hover{
+  text-decoration: underline;
 }
 .tile ul {
 	padding: 0;
@@ -97,7 +107,7 @@ svg{
 }
 .tile ul li{
   display: inline;
-  margin-right: 10px;
+  margin-right: 7px;
 }
 .tile ul li img{
   max-width: 20px;
@@ -105,9 +115,28 @@ svg{
 }
 .stars-today {
 	position: absolute;
-	right: 10px;
-	bottom: 15px;
+	right: 20px;
+	bottom: 20px;
 	margin: 0;
+	font-size: 12px;
+}
+.bottomline {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+.bottomline a{
+  font-size: 12px;
+  text-decoration: none;
+  color: #8b949e;
+}
+.bottomline a:hover{
+  text-decoration: none;
+  color: #58a6ff;
+}
+.bottomline a:hover svg{
+  fill: #58a6ff;
+  transition: 0.9s;
+  transform: rotateY(180deg);
 }
 @keyframes App-logo-spin {
   from {
@@ -115,5 +144,10 @@ svg{
   }
   to {
     transform: rotate(360deg);
+  }
+}
+@media screen and (max-width:460px) {
+  .App .repository-container {
+    margin: 15px;
   }
 }
