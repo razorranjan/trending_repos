@@ -1,5 +1,14 @@
 .App {
   text-align: center;
+  background-color: #0d1117;
+  width: 100%;
+  /* max-width: 960px; */
+  margin: auto;
+  color: #8b949e;
+}
+svg{
+  fill: #8b949e;
+  vertical-align: middle;
 }
 
 .App-logo {
@@ -14,8 +23,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #161b22;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,7 +35,80 @@
 .App-link {
   color: #61dafb;
 }
-
+.App .repository-container{
+  padding: 0;
+  border: 1px solid #30363d;
+  border-radius: 5px;
+  max-width: 960px;
+  margin: 40px auto;
+}
+.repository-container .title {
+  background-color: #161b22;
+  padding: 20px;
+  margin: 0;
+  text-align: left;
+}
+.App .repository-container .repolist  {
+	list-style: none;
+	text-align: left;
+	border: 1px solid #191e24;
+	padding: 20px;
+	margin-bottom: 10px;
+  position: relative;
+}
+.App li a{
+  color: #58a6ff;
+  text-decoration: none;
+}
+.App li a svg{
+  color:#8b949e;
+}
+.hidden {
+  display: none;
+}
+.App-header .text-center {
+  text-align: center;
+}
+.brick {
+  padding-right: 10px;
+}
+.tile {
+  /* width: 50%; */
+}
+.tile a {
+  color: #58a6ff;
+  font-size: 20px;
+  padding-left: 10px;
+}
+.tile ul {
+	padding: 0;
+	list-style: none;
+	display: inline;
+	margin: 0 0 0 10px;
+}
+.tile ul li a{
+  padding: 0;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+}
+.tile ul li{
+  display: inline;
+  margin-right: 10px;
+}
+.tile ul li img{
+  max-width: 20px;
+  display: block;
+}
+.stars-today {
+	position: absolute;
+	right: 10px;
+	bottom: 15px;
+	margin: 0;
+}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
