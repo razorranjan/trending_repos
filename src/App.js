@@ -31,7 +31,9 @@ function App() {
           <a href={ repo.url } target="_blank" rel='noreferrer'><span>{ repo.username } / { repo.repositoryName }</span></a>
           <p className='description'>{repo.description}</p>
           <div className='bottomline'>
-            <span className='brick'>{repo.language}</span>
+            {
+              repo.language ? <span className='brick'>{repo.language}</span> : ''
+            }
             <a href={ repo.url + "/stargazers"} target="_blank" rel='noreferrer'><span className='brick'><StarIcon/> {repo.totalStars}</span></a>
             <a href={ repo.url + "/network/members." + repo.repositoryName } target="_blank" rel='noreferrer'><span className='brick'><ForkIcon/> {repo.forks}</span></a>
             <ul>Built by &nbsp;&nbsp;{contributers}</ul>

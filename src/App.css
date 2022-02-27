@@ -128,6 +128,7 @@ svg{
   font-size: 12px;
   text-decoration: none;
   color: #8b949e;
+  padding: 0;
 }
 .bottomline a:hover{
   text-decoration: none;
@@ -149,5 +150,12 @@ svg{
 @media screen and (max-width:460px) {
   .App .repository-container {
     margin: 15px;
+  }
+  .tile ul {
+    display: block;
+    margin: 10px 0;
+  }
+  .stars-today {
+    position: static;
   }
 }
