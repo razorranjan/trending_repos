@@ -5,6 +5,7 @@ import axios from 'axios';
 import RepoIcon from './components/RepoIcon';
 import StarIcon from './components/StarIcon';
 import ForkIcon from './components/ForkIcon';
+import repositories from './sample.json';
 
 function App() {
   const [repos, setRepos] = useState([]);
@@ -15,6 +16,7 @@ function App() {
       // console.log(res.data);
       setRepos(res.data);
     }).catch(error =>{
+      setRepos(repositories);
       console.log('unable to fetch!')
     });
   },[]);
